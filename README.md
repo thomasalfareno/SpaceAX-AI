@@ -70,12 +70,14 @@ Pastikan sistem Anda sudah terinstal Python 3.8 atau lebih baru. Pustaka yang di
    git clone <url-repo-anda>
    cd SpaceaxAiDebug
    ```
-3. **Buat Virtual Environment (Opsional namun disarankan)**:
+3. **Ekstrak Data KBBI**:
+   Sebelum menjalankan program, Anda **wajib** mengekstrak file `kbbi_v_part.zip` yang ada di dalam folder `kbbi/`. Jika file tersebut tidak ada atau bermasalah saat di-*clone*, Anda dapat mengunduhnya secara manual [di sini](https://github.com/thomasalfareno/SpaceAX-AI/tree/main/kbbi/kbbi_v_part.zip).
+4. **Buat Virtual Environment (Opsional namun disarankan)**:
    ```cmd
    python -m venv venv
    venv\Scripts\activate
    ```
-4. **Instal Dependencies**:
+5. **Instal Dependencies**:
    ```cmd
    pip install -r requirements.txt
    ```
@@ -93,12 +95,14 @@ Pastikan sistem Anda sudah terinstal Python 3.8 atau lebih baru. Pustaka yang di
    git clone <url-repo-anda>
    cd SpaceaxAiDebug
    ```
-3. **Buat Virtual Environment (Sangat disarankan di Arch untuk menghindari konflik package sistem `PEP 668`)**:
+3. **Ekstrak Data KBBI**:
+   Sebelum menjalankan program, Anda **wajib** mengekstrak file `kbbi_v_part.zip` yang ada di dalam folder `kbbi/`. Jika file tersebut tidak ada atau bermasalah saat di-*clone*, Anda dapat mengunduhnya secara manual [di sini](https://github.com/thomasalfareno/SpaceAX-AI/tree/main/kbbi/kbbi_v_part.zip).
+4. **Buat Virtual Environment (Sangat disarankan di Arch untuk menghindari konflik package sistem `PEP 668`)**:
    ```bash
    python -m venv venv
    source venv/bin/activate
    ```
-4. **Instal Dependencies**:
+5. **Instal Dependencies**:
    ```bash
    pip install -r requirements.txt
    ```
@@ -148,4 +152,13 @@ python main.py test
 ```
 
 ---
-*Dokumentasi ini otomatis dihasilkan untuk mempermudah kontribusi dan implementasi ke environment lokal.*
+
+## 👨‍💻 Tentang Pengembang
+
+**Thomas Alfareno Ananta Nugraha**
+Program Studi Teknik Informatika, Departemen Teknik Informatika
+Fakultas Teknologi Elektro dan Informatika Cerdas (FTEIC)
+Institut Teknologi Sepuluh Nopember (ITS)
+
+---
+*Dokumentasi ini dihasilkan untuk mempermudah kontribusi dan implementasi ke environment lokal.*

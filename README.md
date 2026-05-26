@@ -67,7 +67,7 @@ Pastikan sistem Anda sudah terinstal Python 3.8 atau lebih baru. Pustaka yang di
 1. **Instal Python**: Unduh Python (versi 3.8 - 3.11 disarankan) dari [python.org](https://www.python.org/downloads/windows/). Pastikan mencentang "Add Python to PATH" saat instalasi.
 2. **Clone/Download Repository**: Buka Command Prompt / PowerShell, lalu masuk ke folder project.
    ```cmd
-   git clone <url-repo-anda>
+   git clone https://github.com/thomasalfareno/SpaceAX-AI/
    cd SpaceaxAiDebug
    ```
 3. **Ekstrak Data KBBI**:

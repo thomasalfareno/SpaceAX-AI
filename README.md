@@ -92,8 +92,8 @@ Pastikan sistem Anda sudah terinstal Python 3.8 atau lebih baru. Pustaka yang di
    ```
 2. **Clone/Download Repository**:
    ```bash
-   git clone <url-repo-anda>
-   cd SpaceaxAiDebug
+   git clone https://github.com/thomasalfareno/SpaceAX-AI/
+   cd SpaceAX-AI
    ```
 3. **Ekstrak Data KBBI**:
    Sebelum menjalankan program, Anda **wajib** mengekstrak file `kbbi_v_part.zip` yang ada di dalam folder `kbbi/`. Jika file tersebut tidak ada atau bermasalah saat di-*clone*, Anda dapat mengunduhnya secara manual [di sini](https://github.com/thomasalfareno/SpaceAX-AI/tree/main/kbbi/kbbi_v_part.zip).

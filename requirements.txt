@@ -1,0 +1,8 @@
+torch>=2.0.0
+beautifulsoup4>=4.11.0
+duckduckgo-search>=5.0.0
+ddgs>=9.14.0
+rich>=13.0.0
+git+https://github.com/huggingface/tokenizers.git#subdirectory=bindings/python
+requests>=2.31.0
+numpy

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpaceAX AI — Next Gen AI Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <span class="logo-icon">🚀</span>
+          <span class="logo-text">SpaceAX <small>v3.0</small></span>
+        </div>
+        <button id="new-chat-btn" class="btn btn-primary">+ New Chat</button>
+      </div>
+
+      <div class="provider-selector-card">
+        <label for="provider-select">AI Engine Provider:</label>
+        <select id="provider-select" class="form-select">
+          <option value="spaceax-small">SpaceAX Small (~35M MoE+Vision)</option>
+          <option value="spaceax-medium">SpaceAX Medium (~120M)</option>
+          <option value="spaceax-promax-8b">SpaceAX ProMax 8B</option>
+          <option value="ollama">Ollama Local (http://localhost:11434)</option>
+          <option value="lmstudio">LM Studio (http://localhost:1234)</option>
+          <option value="openai">OpenAI GPT-4o / Compatible</option>
+        </select>
+        <div id="endpoint-config" class="endpoint-config hidden">
+          <input type="text" id="api-endpoint-url" placeholder="http://localhost:11434/api/generate" class="form-input" />
+        </div>
+      </div>
+
+      <div class="sidebar-nav">
+        <div class="nav-title">Features</div>
+        <ul class="nav-list">
+          <li class="nav-item active" data-mode="chat"><span class="icon">💬</span> Conversational AI</li>
+          <li class="nav-item" data-mode="agent"><span class="icon">🤖</span> Autonomous Agent</li>
+          <li class="nav-item" data-mode="vision"><span class="icon">👁️</span> Vision Analysis</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="user-profile">
+          <div class="avatar">ITS</div>
+          <div class="info">
+            <span class="name">Thomas Alfareno</span>
+            <span class="role">ITS Surabaya - FTEIC</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Chat Content -->
+    <main class="main-content">
+      <!-- Top Navbar -->
+      <header class="top-bar">
+        <div class="active-model">
+          <span class="status-indicator online"></span>
+          <span id="model-status-name">SpaceAX Model v3.0 (GQA + MoE + Vision)</span>
+        </div>
+        <div class="top-actions">
+          <button id="toggle-web-mode" class="badge badge-web active">Web Search: ON</button>
+          <button id="toggle-agent-mode" class="badge badge-agent">Agent Loop: OFF</button>
+          <button id="clear-chat" class="btn-icon" title="Clear Chat">🗑️</button>
+        </div>
+      </header>
+
+      <!-- Chat Container -->
+      <div id="chat-messages" class="chat-messages">
+        <!-- Welcome Card -->
+        <div class="welcome-card">
+          <h2>SpaceAX AI v3.0</h2>
+          <p>Multimodal Language, Vision & Autonomous Agent System</p>
+          <div class="suggestion-grid">
+            <div class="suggestion-card" onclick="sendQuickPrompt('Jelaskan arsitektur Grouped Query Attention (GQA)')">
+              <span>Arsitektur Transformer & GQA</span>
+            </div>
+            <div class="suggestion-card" onclick="sendQuickPrompt('Buatkan modul turunan kalkulus di Python')">
+              <span>Pemrograman Python & Sains</span>
+            </div>
+            <div class="suggestion-card" onclick="sendQuickPrompt('Cari informasi perkembangan AI terkini')">
+              <span>Pencarian & Analisis Informasi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Highlight Quote Mention Bar -->
+      <div id="mention-bar" class="mention-bar hidden">
+        <span class="mention-label">Replying to:</span>
+        <span id="mention-text" class="mention-text"></span>
+        <button id="cancel-mention" class="btn-cancel-mention">✕</button>
+      </div>
+
+      <!-- Input Area -->
+      <div class="input-container">
+        <!-- Image Preview Bar -->
+        <div id="image-preview-container" class="image-preview-container hidden">
+          <img id="image-preview" src="" alt="Vision Upload Preview" />
+          <button id="remove-image-btn" class="btn-remove-image">✕</button>
+        </div>
+
+        <form id="chat-form" class="chat-form">
+          <label for="image-upload" class="btn-attach" title="Upload Gambar untuk Vision">
+            📷
+            <input type="file" id="image-upload" accept="image/*" class="hidden-file-input" />
+          </label>
+          <textarea id="chat-input" placeholder="Tanya SpaceAX atau ketik !search [topik]..." rows="1"></textarea>
+          <button type="submit" id="send-btn" class="btn-send">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+          </button>
+        </form>
+        <div class="input-footer-note">SpaceAX AI v3.0 — Thomas Alfareno Ananta Nugraha (ITS Surabaya)</div>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

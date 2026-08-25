@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.vscode/
+.idea/
+data/checkpoints/*.pt
+data/conversation_logs/*
+data/logs/*
+*.log
+server.pid
+server.log

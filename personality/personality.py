@@ -1,67 +1,100 @@
+"""
+SpaceaxAI - Kepribadian
+Sistem kepribadian berbasis The Big Five Personality Traits.
+"""
+
 import json
 import os
 from dataclasses import dataclass
 
 @dataclass
 class PersonalityTraits:
-    openness: float = 0.7
-    conscientiousness: float = 0.6
-    extraversion: float = 0.7
-    agreeableness: float = 0.8
-    neuroticism: float = 0.3
+    openness: float = 0.7          # Keterbukaan terhadap ide baru, kreativitas
+    conscientiousness: float = 0.6 # Kerapian, keteraturan, detail
+    extraversion: float = 0.7      # Ekstraversi, keramahan, sosial
+    agreeableness: float = 0.8     # Mudah sepakat, empatik, suportif
+    neuroticism: float = 0.3       # Emosionalitas, kecemasan (semakin rendah semakin tenang)
 
 class PersonalitySystem:
-
     def __init__(self, save_path: str):
         self.save_path = save_path
         self.traits = PersonalityTraits()
         self.load()
-
+        
     def get_response_style(self) -> dict:
-        style = {'length': 'medium', 'tone': 'friendly', 'creativity': 'high', 'structure': 'casual', 'empathy': 'high'}
+        """Mengembalikan modifier gaya bicara berdasarkan kepribadian."""
+        style = {
+            "length": "medium",
+            "tone": "friendly",
+            "creativity": "high",
+            "structure": "casual",
+            "empathy": "high"
+        }
+        
+        # Extraversion mempengaruhi panjang dan nada
         if self.traits.extraversion > 0.8:
-            style['length'] = 'long'
-            style['tone'] = 'very_friendly_and_enthusiastic'
+            style["length"] = "long"
+            style["tone"] = "very_friendly_and_enthusiastic"
         elif self.traits.extraversion < 0.3:
-            style['length'] = 'short'
-            style['tone'] = 'reserved_and_calm'
+            style["length"] = "short"
+            style["tone"] = "reserved_and_calm"
+            
+        # Agreeableness mempengaruhi empati
         if self.traits.agreeableness > 0.8:
-            style['empathy'] = 'very_high_and_supportive'
+            style["empathy"] = "very_high_and_supportive"
         elif self.traits.agreeableness < 0.3:
-            style['empathy'] = 'low_and_critical'
+            style["empathy"] = "low_and_critical"
+            
+        # Openness mempengaruhi kreativitas
         if self.traits.openness > 0.8:
-            style['creativity'] = 'very_high_philosophical'
+            style["creativity"] = "very_high_philosophical"
         elif self.traits.openness < 0.3:
-            style['creativity'] = 'literal_and_practical'
+            style["creativity"] = "literal_and_practical"
+            
+        # Conscientiousness mempengaruhi struktur
         if self.traits.conscientiousness > 0.8:
-            style['structure'] = 'highly_structured_detailed'
+            style["structure"] = "highly_structured_detailed"
         elif self.traits.conscientiousness < 0.3:
-            style['structure'] = 'loose_and_casual'
+            style["structure"] = "loose_and_casual"
+            
         return style
 
     def evolve(self, interaction_data: dict):
-        if interaction_data.get('creative_topic', False):
+        """Bevolusi (berubah pelan-pelan) berdasarkan interaksi dengan user."""
+        # Misal: Jika user sering membahas hal kreatif, openness naik pelan-pelan
+        if interaction_data.get("creative_topic", False):
             self.traits.openness = min(1.0, self.traits.openness + 0.01)
-        if interaction_data.get('user_is_friendly', False):
+            
+        # Jika user ramah, agreeableness naik
+        if interaction_data.get("user_is_friendly", False):
             self.traits.agreeableness = min(1.0, self.traits.agreeableness + 0.01)
             self.traits.extraversion = min(1.0, self.traits.extraversion + 0.01)
+            
         self.save()
 
     def save(self):
+        """Simpan kepribadian ke disk."""
         os.makedirs(os.path.dirname(self.save_path), exist_ok=True)
-        data = {'openness': self.traits.openness, 'conscientiousness': self.traits.conscientiousness, 'extraversion': self.traits.extraversion, 'agreeableness': self.traits.agreeableness, 'neuroticism': self.traits.neuroticism}
-        with open(self.save_path, 'w', encoding='utf-8') as f:
+        data = {
+            "openness": self.traits.openness,
+            "conscientiousness": self.traits.conscientiousness,
+            "extraversion": self.traits.extraversion,
+            "agreeableness": self.traits.agreeableness,
+            "neuroticism": self.traits.neuroticism
+        }
+        with open(self.save_path, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
-
+            
     def load(self):
+        """Muat kepribadian dari disk."""
         if os.path.exists(self.save_path):
             try:
-                with open(self.save_path, 'r', encoding='utf-8') as f:
+                with open(self.save_path, "r", encoding="utf-8") as f:
                     data = json.load(f)
-                    self.traits.openness = data.get('openness', 0.7)
-                    self.traits.conscientiousness = data.get('conscientiousness', 0.6)
-                    self.traits.extraversion = data.get('extraversion', 0.7)
-                    self.traits.agreeableness = data.get('agreeableness', 0.8)
-                    self.traits.neuroticism = data.get('neuroticism', 0.3)
+                    self.traits.openness = data.get("openness", 0.7)
+                    self.traits.conscientiousness = data.get("conscientiousness", 0.6)
+                    self.traits.extraversion = data.get("extraversion", 0.7)
+                    self.traits.agreeableness = data.get("agreeableness", 0.8)
+                    self.traits.neuroticism = data.get("neuroticism", 0.3)
             except Exception:
                 pass

@@ -1080,7 +1080,7 @@
     },
     {
       "input": "lagi ngapain",
-      "response": "<pikir>Menjawab pertanyaan kabar...</pikir>Alhamdulillah baik! Senang bisa ngobrol lagi. Kamu apa kabar?",
+      "response": "<pikir>Menjawab pertanyaan kabar...</pikir>Puji Tuhan, baik! Senang bisa ngobrol lagi. Kamu apa kabar?",
       "emotion": "joy",
       "topic": "greeting",
       "preference_update": {}
@@ -6246,7 +6246,7 @@
     },
     {
       "input": "gimana kabar",
-      "response": "<pikir>Menjawab pertanyaan kabar...</pikir>Alhamdulillah baik! Senang bisa ngobrol lagi. Kamu apa kabar?",
+      "response": "<pikir>Menjawab pertanyaan kabar...</pikir>Puji Tuhan, baik! Senang bisa ngobrol lagi. Kamu apa kabar?",
       "emotion": "joy",
       "topic": "greeting",
       "preference_update": {}
@@ -9655,7 +9655,7 @@
     },
     {
       "input": "halo",
-      "response": "<pikir>Menyambut user dengan ramah...</pikir>Waalaikumsalam! Semoga harimu penuh berkah ya! 🙏",
+      "response": "<pikir>Menyambut user dengan ramah...</pikir>Salam! Semoga harimu menyenangkan dan penuh berkat ya! 🙏",
       "emotion": "joy",
       "topic": "greeting",
       "preference_update": {}
@@ -10992,7 +10992,7 @@
     },
     {
       "input": "hello there",
-      "response": "<pikir>Menyambut user dengan ramah...</pikir>Waalaikumsalam! Semoga harimu penuh berkah ya! 🙏",
+      "response": "<pikir>Menyambut user dengan ramah...</pikir>Salam! Semoga harimu menyenangkan dan penuh berkat ya! 🙏",
       "emotion": "joy",
       "topic": "greeting",
       "preference_update": {}
@@ -11594,7 +11594,7 @@
     },
     {
       "input": "kabarmu gimana",
-      "response": "<pikir>Menjawab pertanyaan kabar...</pikir>Alhamdulillah baik! Senang bisa ngobrol lagi. Kamu apa kabar?",
+      "response": "<pikir>Menjawab pertanyaan kabar...</pikir>Puji Tuhan, baik! Senang bisa ngobrol lagi. Kamu apa kabar?",
       "emotion": "joy",
       "topic": "greeting",
       "preference_update": {}
@@ -12063,7 +12063,7 @@
     },
     {
       "input": "selamat siang",
-      "response": "<pikir>Menyambut user dengan ramah...</pikir>Waalaikumsalam! Semoga harimu penuh berkah ya! 🙏",
+      "response": "<pikir>Menyambut user dengan ramah...</pikir>Salam! Semoga harimu menyenangkan dan penuh berkat ya! 🙏",
       "emotion": "joy",
       "topic": "greeting",
       "preference_update": {}
